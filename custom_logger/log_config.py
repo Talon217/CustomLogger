@@ -28,7 +28,7 @@ def setup_logger(console_level=logging.WARNING, file_level=logging.DEBUG) -> log
     base_format = "%(asctime)s [ %(levelname)-8s ] [ %(name)s ~ %(filename)s:%(lineno)d ] - %(message)s"
     date_format = "%Y-%m-%d %H:%M:%S"
 
-    logger = logging.getLogger(__name__)
+    logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
 
     # Clear pre-existing handlers to prevent duplicate outputs
