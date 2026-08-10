@@ -10,3 +10,7 @@ readme = "README.md"
 authors = [{ name = "Blaine Horner" }]
 requires-python = ">=3.10"
 dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["custom_logger*"]
