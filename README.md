@@ -1,73 +1,45 @@
-# CustomLogger
+<div align="center">
 
-A lightweight Python logging package.  
+# 🪵 CustomLogger
+### Zero-Dependency Python Logging Engine • Color-Coded Console • Rotating File Handlers
 
-[+] Custom ANSI color-coded console output.  
-[+] Automatic rotating file handlers.  
-[+] Zero external dependencies using Python's standard library.  
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![Git Standards](https://img.shields.io/badge/Commits-Conventional_Commits-F05032?style=for-the-badge&logo=git&logoColor=white)](https://www.conventionalcommits.org/)
 
-## Visual Showcase
+<br/>
+
+> *A lightweight, drop-in Python logging setup designed for fast visual debugging and automated log rotation. Zero external dependencies—powered entirely by Python's standard library.*
+
+</div>
+
+---
+
+## ✨ Features
+
+* 🎨 **ANSI Color-Coded Console Output:** Clean visual hierarchy across `DEBUG`, `INFO`, `WARNING`, `ERROR`, and `CRITICAL` log levels.
+* 🔄 **Automated File Rotation:** Built-in rotating file handler manages disk footprint without external tools.
+* 📦 **Zero External Dependencies:** Built 100% on Python's native `logging` module—no third-party package overhead.
+* 🔌 **Drop-In Integration:** Call `setup_logger()` once at application startup; all modular sub-loggers inherit configuration automatically.
+
+---
+
+## 📸 Visual Showcase
 
 ### Console Output
-
 ![Terminal Color Example](assets/terminal_example.png)
 
-### File Output
-
+### File Output & Retention
 ![File Output Example](assets/file_example.png)
 
-[+] log_space = 5mb * 3 files.  
-[+] logs loop over olddest records.
+* **Disk Allocation:** Configured for `5 MB` per file with a default `3-file` backup pool.
+* **Auto-Pruning:** Oldest records loop and purge automatically when size thresholds are reached.
 
-## Installation
+---
 
-Install directly from GitHub into any project or virtual environment:
+## 📦 Installation
+
+Install directly into any virtual environment or project using `pip`:
 
 ```bash
-pip install git+https://github.com/Talon217/CustomLogger.git
-```
-
-## Quick Start
-
-### core.py
-
-```python
-import logging
-from custom_logger import setup_logger
-from logic import Logic
-
-# 1. Initialize custom logger ONCE at startup
-setup_logger(console_level=logging.DEBUG) # Defaults: 'console_level=logging.WARNING, file_level=logging.DEBUG'
-
-# 2. Local logger for main script
-logger = logging.getLogger(__name__)
-
-def main():
-    logger.info("Application starting...")
-    game = Logic()
-    game.make_move(1, 1)
-
-if __name__ == "__main__":
-    main()
-```
-
-### logic.py
-
-```python
-import logging  # Standard built-in library ONLY (No setup_logger import!)
-
-# Creating a logger named "logic"
-logger = logging.getLogger(__name__)
-
-class Logic:
-    def __init__(self):
-        logger.debug("Initializing Logic engine...")
-
-    def make_move(self, row: int, col: int):
-        logger.info(f"Move registered at row {row}, col {col}")
-```
-
-## FAQ
-
-> For the time being, this module will remain static a static logger flavor.
-> For more dynamic customization try importing: `logging` and `colorlog`.
+pip install git+[https://github.com/Talon217/CustomLogger.git](https://github.com/Talon217/CustomLogger.git)
